@@ -10,9 +10,11 @@ import whiteframe from './whiteframe/index';
 import button from './button/index';
 import icon from './icon/index';
 import pagination from './pagination/index';
+import input from './input/index';
 
 import wave from './wave/index';
 export default angular.module('ks.component' ,[
+    input.name,
     table.name,
     checkbox.name,
     panel.name,

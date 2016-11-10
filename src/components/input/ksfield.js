@@ -9,18 +9,23 @@ export default function ksFieldDirective($mdTheming,$parse) {
         controller: ContainerCtrl
     };
     function compile(tElement) {
-        console.info($mdTheming)
+        console.log('%c$mdTheming' ,'color:red' ,$mdTheming)
         // Check for both a left & right icon
-        var leftIcon = tElement[0].querySelector(LEFT_SELECTORS);
+/*        var leftIcon = tElement[0].querySelector(LEFT_SELECTORS);
         var rightIcon = tElement[0].querySelector(RIGHT_SELECTORS);
 
         if (leftIcon) { tElement.addClass('ks-icon-left'); }
-        if (rightIcon) { tElement.addClass('ks-icon-right'); }
+        if (rightIcon) { tElement.addClass('ks-icon-right'); }*/
 
-        return function postLink(scope, element) {
-            console.info('element.controller' ,element.controller('mdTheme'))
-            console.info('element.controller' ,element.data('$mdThemeController'))
+        return function postLink(scope, element,attrs,ctrl) {
             $mdTheming(element);
+            if(scope.label){
+                var label = scope.label;
+                var labelElm =  angular.element(`<label>${label}</label>`);
+                ctrl.label = labelElm;
+                element.prepend(labelElm);
+            }
+
         };
     }
 

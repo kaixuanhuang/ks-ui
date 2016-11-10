@@ -3,10 +3,14 @@
  */
 import labelDirective from './label';
 import ksFieldDirective from './ksfield';
+import inputTextareaDirective from './inputtextarea';
+import TextInput from './TextInput';
 export default angular.module('ks.component.input', [
     'material.core'
 ])
     .directive('ksField', ksFieldDirective)
     .directive('label', labelDirective)
-   //.directive('input', inputTextareaDirective);
+   // .directive('KsInput' ,KsInputDirective)
+    .directive('textInput' ,TextInput)
+   .directive('input', inputTextareaDirective);
 

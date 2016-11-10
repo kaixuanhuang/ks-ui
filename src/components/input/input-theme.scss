@@ -13,14 +13,14 @@
 }
 
 
-ks-filed.md-THEME_NAME-theme {
-  .md-input {
+ks-field.md-THEME_NAME-theme {
+  .ks-input {
     @include input-placeholder-color('\'{{foreground-3}}\'');
     color: '{{foreground-1}}';
-    border-color: '{{foreground-4}}';
+    border-color: '{{primary-color-1}}';
   }
 
-  > md-icon {
+  > ks-icon {
     color: '{{foreground-1}}';
   }
 
@@ -98,7 +98,7 @@ ks-filed.md-THEME_NAME-theme {
       color: '{{warn-A700}}';
     }
   }
-  .md-input {
+  .ks-input {
     &[disabled],
     [disabled] & {
       border-bottom-color: transparent;

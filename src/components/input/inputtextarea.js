@@ -1,7 +1,7 @@
 /**
  * Created by huangsihuan on 2016/10/31.
  */
-function inputTextareaDirective($mdUtil, $window, $mdAria, $timeout, $mdGesture) {
+function inputTextareaDirective($mdUtil, $window, $timeout) {
     return {
         restrict: 'E',
         require: ['^?ksField', '?ngModel', '?^form'],
@@ -16,7 +16,7 @@ function inputTextareaDirective($mdUtil, $window, $mdAria, $timeout, $mdGesture)
         var ngModelCtrl = ctrls[1] || $mdUtil.fakeNgModel();
         var parentForm = ctrls[2];
         var isReadonly = angular.isDefined(attr.readonly);
-        var mdNoAsterisk = $Util.parseAttributeBoolean(attr.mdNoAsterisk);
+        //var mdNoAsterisk = $Util.parseAttributeBoolean(attr.mdNoAsterisk);
         var tagName = element[0].tagName.toLowerCase();
 
 
@@ -35,13 +35,13 @@ function inputTextareaDirective($mdUtil, $window, $mdAria, $timeout, $mdGesture)
         var errorsSpacer = angular.element('<div class="ks-errors-spacer">');
         element.after(errorsSpacer);
 
-        if (!containerCtrl.label) {
+/*        if (!containerCtrl.label) {
             $mdAria.expect(element, 'aria-label', attr.placeholder);
-        }
+        }*/
 
         element.addClass('ks-input');
         if (!element.attr('id')) {
-            element.attr('id', 'input_' + $mdUtil.nextUid());
+            //element.attr('id', 'input_' + $mdUtil.nextUid());
         }
 
        //如果没有ngmodel
@@ -226,7 +226,8 @@ function inputTextareaDirective($mdUtil, $window, $mdAria, $timeout, $mdGesture)
                 var dragStart = null;
                 var startHeight = 0;
                 var container = containerCtrl.element;
-                var dragGestureHandler = $mdGesture.register(handle, 'drag', { horizontal: false });
+
+                //var dragGestureHandler = $mdGesture.register(handle, 'drag', { horizontal: false });
 
 
                 element.wrap('<div class="md-resize-wrapper">').after(handle);

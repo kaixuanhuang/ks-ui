@@ -32,5 +32,8 @@ function TestController(){
     "use strict";
     $ctrl.dataprovider = [{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'},{a:'a',b:'b' ,c:'c'}];
     $ctrl.selected= [ $ctrl.dataprovider[0]];
-    console.info('$ctrl.selected' ,$ctrl.selected)
+    console.info('$ctrl.selected' ,$ctrl)
+    $ctrl.submit = function(){
+        console.log('submit' ,$ctrl)
+    }
 }

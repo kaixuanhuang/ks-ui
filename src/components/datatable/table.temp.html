@@ -37,7 +37,7 @@
                 <td ng-if="$kstableCtrl.checkable === 'true'" width="40px">
                     <ks-checkbox class="md-primary"  ng-checked="$kstableCtrl.$renderChecked(trdata)" ng-click="$kstableCtrl.rowSelection($index,trdata)"/>
                 </td>
-                <td ng-repeat="td in $kstableCtrl.$$columnDefs track by $index"> {{trdata[td.field]}}</td>
+                <td ng-repeat="td in $kstableCtrl.$$columnDefs track by $index"> <div ks-cell-render></div></td>
             </tr>
             </tbody>
         </table>
@@ -54,7 +54,7 @@
             <tbody>
             <tr ng-repeat="trdata in $kstableCtrl.dataprovider track by $index" ng-click="$kstableCtrl.onRowClick($index,trdata)"
                 ng-mouseleave ="$kstableCtrl.onRowNotHover($index,$event)"           ng-mouseenter="$kstableCtrl.onRowHover($index,$event)">
-                <td ng-repeat="td in $kstableCtrl.$$fixrightColumnDefs track by $index"> {{trdata[td.field]}}</td>
+                <td ng-repeat="td in $kstableCtrl.$$fixrightColumnDefs track by $index"> <div ks-cell-render></div></td>
             </tr>
             </tbody>
         </table>

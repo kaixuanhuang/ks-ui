@@ -8,7 +8,7 @@
 
 
 
-function UtilFactory($timeout) {
+function UtilFactory($timeout,$rootScope) {
     var $mdUtil =  {
         parseAttributeBoolean: function (value, negatedCheck) {
             return value === '' || !!value && (negatedCheck === false || value !== 'false' && value !== '0');
