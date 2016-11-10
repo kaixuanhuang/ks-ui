@@ -1,0 +1,122 @@
+@function rem($multipiler){
+  $font-size: 14px;
+  @return $multipiler * $font-size;
+}
+
+$input-line-height: 26px !default;
+$input-padding-top: 2px !default;
+
+$input-border-width-default: 1px !default;
+$input-border-width-focused: 2px !default;
+
+$field-padding: rem(1.6); //input
+$field-label-padding: rem(0.4);
+
+ks-field{
+  display:block;
+}
+.ks-field {
+  position: relative;
+  overflow: hidden; //bfc  height
+  padding-top: rem(0.4);
+  padding-bottom: rem(0.4);
+  padding-right: $field-padding;
+  padding-left: rem(1.2);
+  /*  上下结构
+  >label {
+    text-align:left;
+    padding-left: $field-label-padding;
+    display: block;
+    color: rgba(0,0,0,.87);
+    font-size: rem(0.9);
+    font-weight: 700;
+    text-transform: none;
+  }
+  */
+
+  > .ks-form-label {
+    text-align: right;  //right
+    padding: $field-label-padding 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    > label {
+      vertical-align: baseline;
+      &:after {
+        content: ":";
+        margin: 0 8px 0 2px;
+        position: relative;
+        top: -.5px;
+      }
+      &.ks-required:after {
+        content: ' *';
+        margin: 0 8px 0 2px;
+        color: red;
+        font-size: 13px;
+      }
+    }
+  }
+
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+      /* remove default appearance from all input/textarea */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"] {
+      min-height: $input-line-height;
+      vertical-align: middle;
+    }
+
+    .ks-input {
+      order: 2;
+      display: block;
+      margin-top: 0;
+      background: none;
+      padding-top: $input-padding-top;
+      padding-bottom: $input-border-width-focused - $input-border-width-default;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-width: 0 0 $input-border-width-default 0;
+      line-height: $input-line-height;
+      height: $input-line-height + ($input-padding-top * 2);
+      -ms-flex-preferred-size: $input-line-height; //IE fix
+      border-radius: 0;
+      border-style: solid; // Firefox fix
+      width: 100%;
+      box-sizing: border-box;
+
+      // Hacky fix to force vertical alignment between `input` and `textarea`
+      // Input and textarea do not align by default:
+      // http://jsbin.com/buqomevage/1/edit?html,css,js,output
+      //@include rtl(float, left, right);
+      &:focus {
+        outline: none;
+        border-width: 0 0 $input-border-width-focused 0;
+      }
+      &:invalid {
+        outline: none;
+        box-shadow: none;
+      }
+
+    }
+
+  }

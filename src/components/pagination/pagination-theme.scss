@@ -1,0 +1,20 @@
+// Pagination
+
+ks-pagination.md-THEME_NAME-theme {
+  li {
+    &.active span { color: #fff; }
+    &.active {
+      background-color: '{{primary-color}}';
+    }
+
+    &.disabled span {
+      cursor: default;
+      color: #999;
+    }
+  }
+
+  .md-ink-ripple {
+    //color:'{{primary-color-0.87}}';
+  }
+}
+

@@ -1,0 +1,64 @@
+<div class="table-fixed-root">
+    <div ng-if="$kstableCtrl.fixleft === true"  class="ks-table-fixleft-container">
+        <table class="ks-table">
+            <thead>
+            <tr>
+                <th ng-if="$kstableCtrl.checkable === true" width="40px">
+                    <ks-checkbox class="md-primary" ng-click="$kstableCtrl.toggleRowSelection()"/>
+                <th>
+                <th  ng-style="th.width?{width:th.width}:{}" ng-repeat="th in $kstableCtrl.$$fixleftColumnDefs track by $index"> {{::th.text}} </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="trdata in $kstableCtrl.dataprovider track by $index" ng-click="$kstableCtrl.onRowClick($index,trdata)"
+                ng-mouseleave ="$kstableCtrl.onRowNotHover($index,$event)"           ng-mouseenter="$kstableCtrl.onRowHover($index,$event)">
+                <td ng-if="$kstableCtrl.checkable === 'true'" width="40px">
+                    <ks-checkbox class="md-primary" ng-checked="$kstableCtrl.$renderChecked(trdata)" ng-click="$kstableCtrl.rowSelection($index,trdata)"/>
+                </td>
+                <td ng-repeat="td in $kstableCtrl.$$fixleftColumnDefs track by $index"> {{trdata[td.field]}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ks-table-container">
+        <table class="ks-table">
+            <thead>
+            <tr>
+                <th ng-if="$kstableCtrl.checkable === 'true'" width="40px">
+                    <ks-checkbox class="md-primary" ng-click="$kstableCtrl.toggleRowSelection()"/>
+                </th>
+                <th  ng-style="th.width?{width:th.width}:{}" ng-repeat="th in $kstableCtrl.$$columnDefs track by $index"> {{::th.text}} </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="trdata in $kstableCtrl.dataprovider track by $index" ng-click="$kstableCtrl.onRowClick($index,$event)"
+                ng-mouseleave ="$kstableCtrl.onRowNotHover($index,$event)"           ng-mouseenter="$kstableCtrl.onRowHover($index,$event)">
+                <td ng-if="$kstableCtrl.checkable === 'true'" width="40px">
+                    <ks-checkbox class="md-primary"  ng-checked="$kstableCtrl.$renderChecked(trdata)" ng-click="$kstableCtrl.rowSelection($index,trdata)"/>
+                </td>
+                <td ng-repeat="td in $kstableCtrl.$$columnDefs track by $index"> {{trdata[td.field]}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div  ng-if="$kstableCtrl.fixright === true" class="ks-table-fixright-container">
+        <table class="ks-table">
+            <thead>
+            <tr>
+                <th ng-style="th.width?{width:th.width}:{}" ng-repeat="th in $kstableCtrl.$$fixrightColumnDefs track by $index"> {{::th.text}} </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="trdata in $kstableCtrl.dataprovider track by $index" ng-click="$kstableCtrl.onRowClick($index,trdata)"
+                ng-mouseleave ="$kstableCtrl.onRowNotHover($index,$event)"           ng-mouseenter="$kstableCtrl.onRowHover($index,$event)">
+                <td ng-repeat="td in $kstableCtrl.$$fixrightColumnDefs track by $index"> {{trdata[td.field]}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ks-tablerow-mask" style="display:none;width:100%;;z-index:99"/>
+    <div id="ngTranscludeDiv" ng-transclude></div>
+</div>

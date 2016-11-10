@@ -1,0 +1,25 @@
+
+ks-content {
+  display: block;
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  width: auto;
+
+  &[ks-scroll-y] {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  &[ks-scroll-x] {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  &[ks-scroll-xy] {
+  }
+
+  @media print {
+    overflow: visible !important;
+  }
+}
+
+

@@ -1,0 +1,8 @@
+ks-toolbar.md-THEME_NAME-theme {
+  background-color: '{{primary-color}}';
+  color: '{{primary-contrast}}';
+  &.md-warn {
+    background-color: '{{warn-color}}';
+    color: '{{warn-contrast}}';
+  }
+}

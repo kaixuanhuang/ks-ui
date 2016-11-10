@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Title</title>
+    <!-- <link crossorigin="anonymous" href="app/bundle/express-build.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="dist/angular-material.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="dist/layouts/angular-material.layout-attributes.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="dist/layouts/angular-material.layouts.css" rel="stylesheet"> -->
+    <!-- <script src="node_modules/core-js/client/shim.min.js"></script> -->
+    <link crossorigin="anonymous" href="app/bundle/ks-component.css" rel="stylesheet">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="src/core/service/meta.js"></script>
+    <script src="src/core/service/theme.palette.js"></script>
+    <script src="src/core/service/theming.js"></script>
+    <script src="src/core/util/ksutil.js"></script>
+    <script src="app/bundle/ks-theme.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <!-- <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+    <script src="node_modules/angular-storage/dist/angular-storage.js"></script>
+    <script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script> -->
+    <!-- <script src="node_modules/angular-aria/angular-aria.js"></script> -->
+    <!-- <script src="dist/angular-material.js"></script> -->
+    <script src="systemjs.config.js"></script>
+
+    <script>
+        System.import('src').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<body>
+
+<div ng-controller="TestController as $ctrl" ng-cloak>
+    <ks-pagination></ks-pagination>
+     <ks-icon md-svg-icon="iconToggleArrow">aa</ks-icon>
+    <ks-panel title="test">
+        asdsad
+    </ks-panel>
+    <ks-table checkable="true" dataprovider="$ctrl.dataprovider" ng-model="$ctrl.selected">
+        <ks-column text="a" field="a"></ks-column>
+        <ks-column text="c" field="c"></ks-column>
+        <ks-column text="c" field="c"></ks-column>
+        <ks-column text="c" field="c"></ks-column>
+        <ks-column text="c" field="c"></ks-column>
+        <ks-column text="c" field="c"></ks-column>
+        <ks-column text="b" field="b" fixed="true"></ks-column>
+    </ks-table>
+
+
+</div>
+
+</body>
+</html>

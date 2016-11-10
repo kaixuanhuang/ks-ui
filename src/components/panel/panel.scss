@@ -1,0 +1,50 @@
+$ks-panel-padding: 15px;
+$baseline-grid:            8px !default;
+$ks-toolbar-height: $baseline-grid * 8 !default;
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+ks-panel{
+  display: block;
+  box-sizing: border-box;
+  overflow: auto;
+  padding:$ks-panel-padding;
+
+  ks-toolbar {
+    border-radius: 3px 3px 0 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.1);
+
+    .ks-toolbar-tools{
+      font-size: 20px;
+      letter-spacing: 0.005em;
+      box-sizing: border-box;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      width: 100%;
+      height: $ks-toolbar-height;
+      max-height: $ks-toolbar-height;  //basegrid =8 * 8 = 64
+      padding: 0 16px;
+      margin: 0;
+    }
+    h3>a{
+      font-weight: 400;
+    }
+
+  }
+}
+

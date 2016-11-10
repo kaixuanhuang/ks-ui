@@ -1,0 +1,45 @@
+// Standard/Desktop Heights
+$baseline-grid:            8px !default;
+$ks-toolbar-height: $baseline-grid * 8 !default;
+$md-toolbar-medium-tall-height: 88px !default;
+$md-toolbar-tall-height: 128px !default;
+
+
+$md-toolbar-indent-margin: 64px !default;
+$md-toolbar-padding: 16px !default;
+
+
+ks-toolbar.md-default-themer{
+  background-color: rgb(16,108,200);
+  color: rgba(255,255,255,0.87);
+}
+
+ks-toolbar {
+  box-sizing: border-box;
+
+  display: flex;  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  //font-size: rem(2.0);
+  min-height: $ks-toolbar-height;
+  width: 100%;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  &.md-medium-tall {
+    height: $md-toolbar-medium-tall-height;
+    min-height: $md-toolbar-medium-tall-height;
+    max-height: $md-toolbar-medium-tall-height;
+
+    .md-toolbar-tools {
+      height: 48px;
+      min-height: 48px;
+      max-height: 48px;
+    }
+  }
+
+
+}
+

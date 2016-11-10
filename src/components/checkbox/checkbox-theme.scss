@@ -1,0 +1,141 @@
+// Mixin to create a primary checkbox.
+// Used by the checkbox and select component.
+@mixin checkbox-primary($checkedSelector: '.ks-checked') {
+  .md-ripple {
+    color: '{{primary-600}}';
+  }
+
+  &#{$checkedSelector} .md-ripple {
+    color: '{{background-600}}';
+  }
+
+  .md-ink-ripple {
+    color: '{{foreground-2}}';
+  }
+
+  &#{$checkedSelector} .md-ink-ripple {
+    color: '{{primary-color-0.87}}';
+  }
+
+  &:not(.ks-checked) .check-icon {
+    border-color: '{{foreground-2}}';
+  }
+
+  &#{$checkedSelector} .check-icon {
+    background-color: '{{primary-color-0.87}}';
+  }
+
+  &#{$checkedSelector}.md-focused .md-container:before {
+    background-color: '{{primary-color-0.26}}';
+  }
+
+  &#{$checkedSelector} .check-icon:after {
+    border-color: '{{primary-contrast-0.87}}';
+  }
+
+  & .md-indeterminate[disabled] {
+    .md-container {
+      color: '{{foreground-3}}';
+    }
+  }
+}
+
+html, body {
+  &.md-THEME_NAME-theme {
+    color: '{{foreground-1}}';
+    background-color: '{{background-color}}';
+  }
+}
+
+ks-checkbox.md-THEME_NAME-theme {
+  .md-ripple {
+    color: '{{accent-A700}}';
+  }
+
+  &.ks-checked .md-ripple {
+    color: '{{background-600}}';
+  }
+
+  .md-ink-ripple {
+    color: '{{foreground-2}}';
+  }
+
+  &.ks-checked .md-ink-ripple {
+    color: '{{accent-color-0.87}}';
+  }
+
+  &.ks-checked.md-focused .ks-container:before {
+    background-color: '{{accent-color-0.26}}';
+  }
+
+  &:not(.ks-checked) .check-icon {
+    border-color: '{{foreground-2}}';
+  }
+
+  &.ks-checked .check-icon {
+    background-color: '{{accent-color-0.87}}';
+  }
+
+  &.ks-checked .check-icon:after {
+    border-color: '{{accent-contrast-0.87}}';
+  }
+
+  &:not([disabled]) {
+    &.md-primary {
+     @include checkbox-primary;
+    }
+
+    &.md-warn {
+      .md-ripple {
+        color: '{{warn-600}}';
+      }
+
+      .md-ink-ripple {
+        color: '{{foreground-2}}';
+      }
+
+      &.ks-checked .md-ink-ripple {
+        color: '{{warn-color-0.87}}';
+      }
+
+      &:not(.ks-checked) .check-icon {
+        border-color: '{{foreground-2}}';
+      }
+
+      &.ks-checked .check-icon {
+        background-color: '{{warn-color-0.87}}';
+      }
+
+      &.ks-checked.md-focused:not([disabled]) .md-container:before {
+        background-color: '{{warn-color-0.26}}';
+      }
+
+      &.ks-checked .check-icon:after {
+        border-color: '{{background-200}}';
+      }
+    }
+  }
+
+  &[disabled] {
+    &:not(.ks-checked) .check-icon {
+      border-color: '{{foreground-3}}';
+    }
+
+    &.ks-checked .check-icon {
+      background-color: '{{foreground-3}}';
+    }
+
+    &.ks-checked .check-icon:after {
+      border-color: '{{background-200}}';
+    }
+
+    .check-icon:after {
+      border-color: '{{foreground-3}}';
+    }
+
+    .ks-label {
+      color: '{{foreground-3}}';
+    }
+  }
+
+}

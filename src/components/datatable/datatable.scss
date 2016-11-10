@@ -1,0 +1,92 @@
+ // ks-table-component
+ //  ks-table-fixleft-container--------+
+ //                                    |
+ //  ks-table-container----------------+------------> table.ks-table
+ //                                    |                   |
+ //  ks-table-fixright-container-------+               thead tbody
+
+
+body{
+  padding:0;
+  margin:0;
+}
+
+ $table-component-padding:15px;
+
+ .ks-table-component {
+     display:block;
+     position:relative;
+     padding:$table-component-padding;
+   .table-fixed-root{
+     //以此为参照
+     position:relative;
+   }
+   .ks-table-fixleft-container {
+      display:inline-block;
+      position:absolute;  top:0;  left:0;
+      z-index:1;
+      overflow:auto;
+     background-color: #fff;
+      table.ks-table {
+        width: auto;
+      }
+      &.fix-shadow{
+        box-shadow: 2px  0 6px rgba(0,0,0,.2);
+      }
+    }
+    .ks-table-fixright-container {
+      display:inline-block;
+      position:absolute;  top:0;  right:0;
+      z-index:1;
+      overflow:auto;
+      background-color: #fff;
+      &.fix-shadow{
+        box-shadow: -1px 0 6px rgba(0,0,0,.2);
+      }
+    }
+    .ks-table-container {
+      background-color: #fff;
+      overflow-x:auto;
+      overflow-y:hidden;
+      table.ks-table{
+         min-width:100%;
+       }
+    }
+    table.ks-table{
+         //background-color: rgb(255, 255, 255);
+         white-space:nowrap;
+         padding: 0px 24px;
+         border-collapse: collapse;
+         border-spacing: 0px;
+         text-align: left;
+         table-layout: fixed;
+         font-family: Roboto, sans-serif;
+         tbody>tr{
+           &.ks-row-hover{
+             background-color: #EEEEEE;
+           }
+         }
+         thead>tr ,tbody>tr{
+           font-weight: bold;
+          //  &:hover {
+          //   background-color: #EEEEEE;
+          //  }
+           >th {
+             text-align: left; //ie fix
+            padding: 16px 8px;
+            border-bottom: 1px solid rgb(224, 224, 224);
+            word-break:normal; //break-all
+            white-space:nowrap;
+            color: #fff;
+           }
+           >td {
+            padding: 16px 8px;
+            border-bottom: 1px solid rgb(224, 224, 224);
+            white-space:nowrap;
+            word-break: break-all;
+            text-align: left;
+            vertical-align:middle;  // 内容居中
+          }
+        }
+     }
+ }
