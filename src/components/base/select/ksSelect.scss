@@ -1,0 +1,62 @@
+/**
+ * Created by huangsihuan on 2016/11/12.
+ */
+
+//$secondary-color: color("teal", "lighten-1") !default;
+// Select
+
+$input-line-height: 26px !default;
+
+$select-border: 1px solid #f2f2f2 !default;
+$select-background: rgba(255, 255, 255, 0.90) !default;
+//$select-focus: 1px solid lighten($secondary-color, 47%) !default;
+$select-padding: 5px !default;
+$select-radius: 2px !default;
+$select-disabled-color: rgba(0,0,0,.3) !default;
+
+
+$input-height: 3rem !default;
+//$input-border-color: color("grey", "base") !default;
+//$input-border: 1px solid $input-border-color !default;
+$input-background: #fff !default;
+/*$input-error-color: $error-color !default;
+$input-success-color: $success-color !default;
+$input-focus-color: $secondary-color !default;*/
+$input-font-size: 1rem !default;
+$input-margin: 0 0 20px 0 !default;
+$input-padding: 0 !default;
+$input-transition: all .3s !default;
+
+
+
+//select { display: none; }
+select.browser-default { display: block; }
+
+ks-select{
+    display:inline;
+    select {
+        background-color: $select-background;
+        width: 100%;
+        padding: $select-padding;
+        border: $select-border;
+        border-radius: $select-radius;
+        height: $input-line-height;
+    }
+}
+
+
+input.select-dropdown {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    //border-bottom: $input-border;
+    outline: none;
+    height: $input-height;
+    line-height: $input-height;
+    width: 100%;
+    font-size: $input-font-size;
+    margin: $input-margin;
+    padding: 0;
+    display: block;
+}
