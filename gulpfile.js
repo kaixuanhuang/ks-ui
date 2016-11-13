@@ -1,10 +1,16 @@
 var gulp = require('gulp');
+var filter = require('gulp-filter');
 var scss = require('gulp-sass');
 var concat = require('gulp-concat');
 var gulputil = require('./scripts/gulp-utils');
 
 
-gulp.task('default' ,['build-theme','build-scss' ] ,function(){
+function filterthemescss(){
+    return filter(function(file){
+        return !/-theme\.scss$/ .test(file.path);
+    })
+}
+gulp.task('default' ,['build-scss' ] ,function(){
 
 });
 
@@ -13,6 +19,7 @@ gulp.task('build-scss' ,[] ,function(){
     gulp.src([
         './src/components/**/*.scss'
     ])
+        .pipe(filterthemescss())
         .pipe(scss())
         .pipe(concat('ks-component.css'))
         .pipe(gulp.dest('./app/bundle'))
@@ -33,8 +40,8 @@ function themeBuildStream() {
         // The PostCSS orderedValues plugin modifies the theme color expressions.
         .pipe(gulputil.minifyCss({ orderedValues: false }))
         .pipe(gulputil.cssToNgConstant('material.core', '$MD_THEME_CSS'))
-        .pipe(concat('ks-theme.js'))
-        .pipe(gulp.dest('./app/bundle'));
+        .pipe(concat('ThemeConst.js'))
+        .pipe(gulp.dest('./src/components/util'));
 
 }
 

@@ -39,7 +39,7 @@ exports.hoistScssVariables = function() {
 exports.cssToNgConstant = function(ngModule, factoryName) {
     return through2.obj(function(file, enc, next) {
 
-        var template = '(function(){ \nangular.module("%1").constant("%2", "%3"); \n})();\n\n';
+        var template = 'let themeConst = "%3";\n export default  themeConst;\n';
         var output = file.contents.toString().replace(/\n/g, '').replace(/\"/g,'\\"');
 
         var jsFile = new gutil.File({

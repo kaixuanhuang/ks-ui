@@ -6,9 +6,16 @@
 export default  function KsPaginationDiretive($mdTheming,$mdUtil){
     return {
         restrict:'E',
+        scope:{
+            position:'@?' ,
+            jump:"@?",
+            perpages:'=?',
+        },
         template:
             `
             <ul class="ks-pagination">
+               <li><ks-select ng-model="perpages" code-tables="perpageCnt"></ks-select></li>
+               <li><span>{{currentPage}}/100</span></li>
                <li  pagination-ink-ripple ng-class="{'disabled':prevDisable()}"><span ng-click="prevPage($event)"><ks-icon md-svg-icon="iconToggleArrow" class="prev"/></span></li>
                
                  <li   class="pageNum" ng-class="{'active':isCurrentPage(i.p)}" ng-click="onPage($event,i.p)"  ng-repeat="i in pagnationInfo "  pagination-ink-ripple>           
@@ -23,16 +30,32 @@ export default  function KsPaginationDiretive($mdTheming,$mdUtil){
             return function postlink(scope,element,attrs,ctrl){
                 //$mdPaginationInkRipple.attach(scope,element)
                 ctrl.init();
+                if(scope.position){
+                    var paganition = element[0].querySelector('.ks-pagination');
+                    switch(scope.position){
+                        case 'left':
+                            angular.element(paganition).css({textAlign:'left'});
+                            break;
+                        case 'center':
+                            angular.element(paganition).css({textAlign:'center'});
+                            break;
+                        case 'right':
+                            angular.element(paganition).css({textAlign:'right'});
+                            break;
+                    }
+                }
 
             }
         },
         controller:['$scope','$element',function Controller($scope,$element){
             var $ctrl = this;
+
             $ctrl.init = function(){
-                $scope.maxpage = 9;
+                $scope.perpages = 10;
+                $scope.perpageCnt = [{id:10,text:'10' },{id:15,text:'15' } ,{id:20,text:'20' }];
                 $scope.pagnationInfo = [];
                 $scope.currentPage = 1;
-                for (let i = 1; i <= $scope.maxpage; i++) {
+                for (let i = 1; i <= $scope.perpages; i++) {
                     var item = {p:i};
                     $scope.pagnationInfo.push(item);
                 }
@@ -65,13 +88,13 @@ export default  function KsPaginationDiretive($mdTheming,$mdUtil){
                 $scope.currentPage = $scope.currentPage - 1;
                 if($scope.pagnationInfo[0].p === 1) return;
                 let prep = $scope.pagnationInfo[0].p-1;
-                $scope.pagnationInfo.splice($scope.maxpage-1,1);
+                $scope.pagnationInfo.splice($scope.perpages-1,1);
                 $scope.pagnationInfo.unshift({p:prep});
             }
 
             $scope.nextPage = function(evt){
                 evt.preventDefault();
-                let nextp = $scope.pagnationInfo[$scope.maxpage-1].p*1+1;
+                let nextp = $scope.pagnationInfo[$scope.perpages-1].p*1+1;
                 $scope.pagnationInfo.shift();
                 $scope.pagnationInfo.push({p:nextp});
                 $scope.currentPage+=1;

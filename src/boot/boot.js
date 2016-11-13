@@ -36,4 +36,14 @@ function TestController(){
     $ctrl.submit = function(){
         console.log('submit' ,$ctrl)
     }
+    $ctrl.active = function(a){
+        console.log('adsadsa' ,a)
+    }
+
+    $ctrl.codeTables = [{id:1,text:'sad'},{id:2,text:'dsada'}];
+    $ctrl.a =1
+
+    $ctrl.formData = {
+        a:'1',
+    }
 }

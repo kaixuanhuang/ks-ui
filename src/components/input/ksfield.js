@@ -21,11 +21,12 @@ export default function ksFieldDirective($mdTheming,$parse) {
             $mdTheming(element);
             if(scope.label){
                 var label = scope.label;
-                var labelElm =  angular.element(`<label>${label}</label>`);
+                var labelElm =  angular.element(` <label>${label}</label>`);
                 ctrl.label = labelElm;
-                element.prepend(labelElm);
+                var labelContainer = element[0].querySelector('.ks-form-label');
+                labelContainer.appendChild(labelElm[0]);
+               // element.prepend(labelElm);
             }
-
         };
     }
 

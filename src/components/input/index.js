@@ -12,5 +12,6 @@ export default angular.module('ks.component.input', [
     .directive('label', labelDirective)
    // .directive('KsInput' ,KsInputDirective)
     .directive('textInput' ,TextInput)
-   .directive('input', inputTextareaDirective);
+   .directive('input', inputTextareaDirective)
+   // .directive('ksSelect' ,KsSelectDirective);
 

@@ -9,7 +9,7 @@ $input-padding-top: 2px !default;
 $input-border-width-default: 1px !default;
 $input-border-width-focused: 2px !default;
 
-$field-padding: rem(1.6); //input
+$field-padding: 7px; //input
 $field-label-padding: rem(0.4);
 
 ks-field{
@@ -18,8 +18,8 @@ ks-field{
 .ks-field {
   position: relative;
   overflow: hidden; //bfc  height
-  padding-top: rem(0.4);
-  padding-bottom: rem(0.4);
+  padding-top: rem(0.6);
+  padding-bottom: rem(0.6);
   padding-right: $field-padding;
   padding-left: rem(1.2);
   /*  上下结构
@@ -39,17 +39,20 @@ ks-field{
     padding: $field-label-padding 0;
     display: inline-block;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+/*    text-overflow: ellipsis;
+    white-space: nowrap;*/
+    word-break: break-all;
+    vertical-align: middle;
+
     > label {
       vertical-align: baseline;
-      &:after {
+      &::after {
         content: ":";
         margin: 0 8px 0 2px;
         position: relative;
         top: -.5px;
       }
-      &.ks-required:after {
+      &.ks-required::before {
         content: ' *';
         margin: 0 8px 0 2px;
         color: red;
@@ -88,7 +91,7 @@ ks-field{
 
     .ks-input {
       order: 2;
-      display: block;
+      //display: block;
       margin-top: 0;
       background: none;
       padding-top: $input-padding-top;
@@ -97,7 +100,7 @@ ks-field{
       padding-right: 2px;
       border-width: 0 0 $input-border-width-default 0;
       line-height: $input-line-height;
-      height: $input-line-height + ($input-padding-top * 2);
+      height: $input-line-height + ($input-padding-top *2);
       -ms-flex-preferred-size: $input-line-height; //IE fix
       border-radius: 0;
       border-style: solid; // Firefox fix

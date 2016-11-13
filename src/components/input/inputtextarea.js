@@ -1,7 +1,7 @@
 /**
  * Created by huangsihuan on 2016/10/31.
  */
-function inputTextareaDirective($mdUtil, $window, $timeout) {
+export default function inputTextareaDirective($mdUtil, $window, $timeout) {
     return {
         restrict: 'E',
         require: ['^?ksField', '?ngModel', '?^form'],
@@ -9,12 +9,11 @@ function inputTextareaDirective($mdUtil, $window, $timeout) {
     };
 
     function postLink(scope, element, attr, ctrls) {
-
-        var containerCtrl = ctrls[0];
-
+        var containerCtrl = ctrls[0];//field
         var hasNgModel = !!ctrls[1];
         var ngModelCtrl = ctrls[1] || $mdUtil.fakeNgModel();
         var parentForm = ctrls[2];
+
         var isReadonly = angular.isDefined(attr.readonly);
         //var mdNoAsterisk = $Util.parseAttributeBoolean(attr.mdNoAsterisk);
         var tagName = element[0].tagName.toLowerCase();
@@ -30,6 +29,8 @@ function inputTextareaDirective($mdUtil, $window, $timeout) {
         }
         containerCtrl.input = element;
 
+
+        //监视 required  disabled
         setupAttributeWatchers();
 
         var errorsSpacer = angular.element('<div class="ks-errors-spacer">');
@@ -41,7 +42,7 @@ function inputTextareaDirective($mdUtil, $window, $timeout) {
 
         element.addClass('ks-input');
         if (!element.attr('id')) {
-            //element.attr('id', 'input_' + $mdUtil.nextUid());
+            element.attr('id', 'input_' + $mdUtil.nextUid());
         }
 
        //如果没有ngmodel
@@ -95,11 +96,10 @@ function inputTextareaDirective($mdUtil, $window, $timeout) {
 
         //监听required
         function setupAttributeWatchers() {
-            if (containerCtrl.label) {
-                attr.$observe('required', function (value) {
-                    containerCtrl.label.toggleClass('md-required', value);
-                });
-            }
+            attr.$observe('required',  value =>{
+                if(!containerCtrl.label) return ;
+                containerCtrl.label.toggleClass('ks-required', value);
+            });
         }
 
         function inputCheckValue() {

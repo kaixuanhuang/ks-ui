@@ -13,6 +13,8 @@
 
   var config = {
     /**
+     *
+     * //设置的属性 转css  usage =>   md-layout-css 不能使用layout指令 级注入className
      * Enable directive attribute-to-class conversions
      * Developers can use `<body md-layout-css />` to quickly
      * disable the Layout directives and prohibit the injection of Layout classNames

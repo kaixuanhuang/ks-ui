@@ -8,14 +8,16 @@
     <link crossorigin="anonymous" href="dist/layouts/angular-material.layout-attributes.css" rel="stylesheet">
     <link crossorigin="anonymous" href="dist/layouts/angular-material.layouts.css" rel="stylesheet"> -->
     <!-- <script src="node_modules/core-js/client/shim.min.js"></script> -->
+
+
     <link crossorigin="anonymous" href="app/bundle/ks-component.css" rel="stylesheet">
     <script src="node_modules/angular/angular.js"></script>
+
     <script src="src/core/service/meta.js"></script>
     <script src="src/core/service/theme.palette.js"></script>
     <script src="src/core/service/theming.js"></script>
-    <script src="src/core/util/ksutil.js"></script>
-    <script src="app/bundle/ks-theme.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+<script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <!-- <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
     <script src="node_modules/angular-storage/dist/angular-storage.js"></script>
@@ -24,30 +26,79 @@
     <script src="node_modules/angular-animate/angular-animate.js"></script> -->
     <!-- <script src="node_modules/angular-aria/angular-aria.js"></script> -->
     <!-- <script src="dist/angular-material.js"></script> -->
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
     <script src="systemjs.config.js"></script>
-
     <script>
         System.import('src').catch(function(err){ console.error(err); });
     </script>
+
+
 </head>
 <body>
 
 <div ng-controller="TestController as $ctrl" ng-cloak>
-    <ks-pagination></ks-pagination>
-     <ks-icon md-svg-icon="iconToggleArrow">aa</ks-icon>
-    <ks-panel title="test">
-        asdsad
-    </ks-panel>
-    <ks-table checkable="true" dataprovider="$ctrl.dataprovider" ng-model="$ctrl.selected">
-        <ks-column text="a" field="a"></ks-column>
-        <ks-column text="c" field="c"></ks-column>
-        <ks-column text="c" field="c"></ks-column>
-        <ks-column text="c" field="c"></ks-column>
-        <ks-column text="c" field="c"></ks-column>
-        <ks-column text="c" field="c"></ks-column>
-        <ks-column text="b" field="b" fixed="true"></ks-column>
-    </ks-table>
 
+
+
+    <ks-panel title="test">
+        <div layout="row">
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a"   flex="33"></text-input>
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a" required="true"  flex="33"></text-input>
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a" required="true"  flex="33"></text-input>
+        </div>
+        <div layout="row">
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a" required="true"  flex="33"></text-input>
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a" required="true"  flex="33"></text-input>
+            <text-input label="tesdsadsadt" model="$ctrl.formData.a" required="true"  flex="33"></text-input>
+        </div>
+
+        <div layout="row">
+            <ks-select   label="tesdsadsadt"  ng-model="$ctrl.formData.a" required="true" flex="33"></ks-select>
+        </div>
+
+
+    </ks-panel>
+
+
+
+
+
+
+    <ks-pagination></ks-pagination>
+
+
+<!--   <ks-select ng-model="$ctrl.a" code-tables="$ctrl.codeTables"></ks-select>-->
+
+
+
+
+   <!--
+
+
+
+     <ks-icon md-svg-icon="iconToggleArrow">aa</ks-icon>
+
+
+
+
+
+     <form>
+        <ks-table checkable="true" dataprovider="$ctrl.dataprovider" ng-model="$ctrl.selected" active="$ctrl.active" url="">
+            <ks-column text="a" field="a"></ks-column>
+            <ks-column text="c" field="c"></ks-column>
+            <ks-column text="b" field="b" fixed="true">
+                <ks-column-render>
+                    <div>
+                        <li ><a  ng-click="$kstableCtrl.active('delete',$rowIndex)">a</a></li>
+                        <li  ><a ng-click="$kstableCtrl.active('edit',$rowIndex)">b</a></li>
+                    </div>
+                </ks-column-render>
+            </ks-column>
+        </ks-table>
+        <ks-button ng-click="$ctrl.submit()"> a </ks-button>
+     </form>
+
+-->
 
 </div>
 

@@ -21,13 +21,12 @@ export default function(){
             ctrl.setPaginationInfo();
             var url = ctrl.getUrl();
         },
-        controller:function Controller($scope,$injector){
+        controller:['$scope','injector',function Controller($scope,$injector){
             var $pagination = this;
             $pagination.total = function(url){
                 var $$resource =  $injector.get('resourceName');
-                $$resource.
             }
-        }
+        }]
     }
 
 }

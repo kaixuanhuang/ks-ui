@@ -8,9 +8,13 @@ export default function tableUtilProvider(){
                 getBodyRows: getBodyRows,
                 getColumnCount:getColumnCount,
                 Hash:Hash,
+                purgeUnit:purgeUnit,
             }
         }
 
+        function purgeUnit(word){
+            return parseInt(word.replace(/[px]?[em]?/g,''));
+        }
         //table
         function getRows(element){
             return Array.prototype.filter.call(element.rows, function (row) {

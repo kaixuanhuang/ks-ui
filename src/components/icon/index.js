@@ -23,5 +23,6 @@ export default angular.module('ks.components.icon', ['material.core'])
     .config(['$mdIconProvider', function($mdIconProvider) {
             $mdIconProvider
                 //.iconSet('social', 'img/icons/sets/social-icons.svg', 24)
-                .iconSet('iconToggleArrow' ,mdSvgRegistry.iconToggleArrow, 24);
+                .iconSet('iconToggleArrow' ,mdSvgRegistry.iconToggleArrow, 24)
+                .iconSet('iconCalendar' ,mdSvgRegistry.iconCalendar, 24);
     }]);
